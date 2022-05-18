@@ -3,6 +3,7 @@
 
 .calculator__grid__button {
     border: 1px solid black;
+    box-shadow: 1px 1px black;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -13,8 +14,21 @@
     margin: 1px;
 
 
+    &:hover {
+        opacity: 100%;
+        border: 2px solid black;
+        padding: 1px;
+    }
 
-    &--del, &-- {
+
+
+    &--del, &--eq, &--clear{
         background-color: orange;
     }
+
+    &--1, &--2, &--3, &--4, &--5, &--6, &--7, 
+    &--8, &--9, &--0, &--dec, &--ans {
+        background-color: rgb(83, 83, 83);
+    } 
+
 }

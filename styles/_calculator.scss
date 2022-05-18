@@ -1,0 +1,22 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.calculator {
+    border: 1px solid black;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+
+
+    &__input, &__output {
+        height: 50px;
+        width: 300px;
+        margin: 15px;
+        
+        border: 1px solid black;
+    }
+
+}
