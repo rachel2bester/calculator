@@ -1,0 +1,96 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.calculator__grid {
+    display: grid;
+    width: 400px;
+
+    grid-template-areas: 
+        "square power open close root"
+        "seven eight nine del clear"
+        "four five six x div"
+        "one two three plus sub"
+        "zero dec ans eq eq";
+
+    align-items: center;
+    &__button {
+        &--square{
+            grid-area: square;
+        }
+        &--power{
+            grid-area: power;
+        }
+        &--open-bracket{
+            grid-area: open;
+        }
+        &--close-bracket{
+            grid-area: close;
+        }
+        &--root {
+            grid-area: root;
+        }
+        &--0 {
+            grid-area: zero;
+        }
+        &--1 {
+            grid-area: one;
+        }
+        &--2 {
+            grid-area: two;
+        }
+        &--3 {
+            grid-area: three;
+        }
+        &--4 {
+            grid-area: four;
+        }
+        &--5 {
+            grid-area: five;
+        }
+        &--6 {
+            grid-area: six;
+        }
+        &--7 {
+            grid-area: seven;
+        }
+        &--8 {
+            grid-area: eight;
+        }
+        &--9 {
+            grid-area: nine;
+        }
+        &--del {
+            grid-area: del;
+        }
+        &--dec {
+            grid-area: dec;
+        }
+        &--ans {
+            grid-area: ans;
+        }
+        &--clear {
+            grid-area: clear;
+        }
+        &--x {
+            grid-area: x;
+        }
+        &--div {
+            grid-area: div;
+        }
+        &--+ {
+            grid-area: plus;
+        }
+        &--- {
+            grid-area: sub;
+        }
+        &--eq {
+            grid-area: eq;
+        }
+        
+
+
+
+
+    }
+    }
+    

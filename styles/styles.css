@@ -1,0 +1,98 @@
+.indice {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.calculator__grid {
+  display: grid;
+  width: 400px;
+  grid-template-areas: "square power open close root" "seven eight nine del clear" "four five six x div" "one two three plus sub" "zero dec ans eq eq";
+  align-items: center;
+}
+.calculator__grid__button--square {
+  grid-area: square;
+}
+.calculator__grid__button--power {
+  grid-area: power;
+}
+.calculator__grid__button--open-bracket {
+  grid-area: open;
+}
+.calculator__grid__button--close-bracket {
+  grid-area: close;
+}
+.calculator__grid__button--root {
+  grid-area: root;
+}
+.calculator__grid__button--0 {
+  grid-area: zero;
+}
+.calculator__grid__button--1 {
+  grid-area: one;
+}
+.calculator__grid__button--2 {
+  grid-area: two;
+}
+.calculator__grid__button--3 {
+  grid-area: three;
+}
+.calculator__grid__button--4 {
+  grid-area: four;
+}
+.calculator__grid__button--5 {
+  grid-area: five;
+}
+.calculator__grid__button--6 {
+  grid-area: six;
+}
+.calculator__grid__button--7 {
+  grid-area: seven;
+}
+.calculator__grid__button--8 {
+  grid-area: eight;
+}
+.calculator__grid__button--9 {
+  grid-area: nine;
+}
+.calculator__grid__button--del {
+  grid-area: del;
+}
+.calculator__grid__button--dec {
+  grid-area: dec;
+}
+.calculator__grid__button--ans {
+  grid-area: ans;
+}
+.calculator__grid__button--clear {
+  grid-area: clear;
+}
+.calculator__grid__button--x {
+  grid-area: x;
+}
+.calculator__grid__button--div {
+  grid-area: div;
+}
+.calculator__grid__button-- + {
+  grid-area: plus;
+}
+.calculator__grid__button--- {
+  grid-area: sub;
+}
+.calculator__grid__button--eq {
+  grid-area: eq;
+}
+
+.calculator__grid__button {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkslategrey;
+  color: white;
+  padding: 2px;
+  margin: 1px;
+}
+.calculator__grid__button--del, .calculator__grid__button-- {
+  background-color: orange;
+}/*# sourceMappingURL=styles.css.map */
