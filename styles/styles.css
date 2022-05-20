@@ -120,4 +120,7 @@
   width: 300px;
   margin: 15px;
   border: 1px solid black;
+}
+.calculator__output {
+  text-align: right;
 }/*# sourceMappingURL=styles.css.map */
