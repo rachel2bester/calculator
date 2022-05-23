@@ -23,7 +23,7 @@ body {
 .calculator__grid {
   display: grid;
   width: 95%;
-  height: 60%;
+  height: 55%;
   margin-top: 10%;
   grid-template-areas: "square power root yroot" "plus sub x div" "open close neg fact" "seven eight nine clear" "four five six del" "one two three eq" "zero dec ans eq";
   grid-auto-columns: 1fr;
@@ -143,7 +143,7 @@ body {
 
 .calculator {
   width: 90%;
-  height: 85%;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
