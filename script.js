@@ -103,11 +103,16 @@ const updateInput = () => {
 const onEquals = (event) => {
     console.log(arr);
 
-    outputArr = solve(arr)
+    outputArr = solve(arr);
     let string = "";
-    outputArr.forEach((item) => {
-        string = string +  " " + item;
-    });
+    if (outputArr != "error") {
+        
+        outputArr.forEach((item) => {
+            string = string +  " " + item;
+        });
+    } else {
+        string = "invalid input"
+    } 
     out.innerText = string;
 }
 
@@ -132,6 +137,16 @@ ans.addEventListener("click", onAns);
 const solve = (arr) => {
     let numsAndOperators = [...arr];
 
+    //if first is operator
+    if (numsAndOperators[0] === ")" ||
+    numsAndOperators[0] === "x" ||
+    numsAndOperators[0] === "÷" ||
+    numsAndOperators[0] === "+" ||
+    numsAndOperators[0] === "+-") {
+        return "error";
+    }
+
+    //change Ans to out
     for (let i = 0; i < numsAndOperators.length; i++) {
         if (numsAndOperators[i] === "Ans") {
             numsAndOperators[i] = out.innerText;
@@ -140,17 +155,14 @@ const solve = (arr) => {
 
     console.log(numsAndOperators);
 
-
-
     while (numsAndOperators.includes("(")) {
         const lastOpenIndex = numsAndOperators.lastIndexOf("(");
-        console.log(lastOpenIndex)
         const restOf = numsAndOperators.slice(lastOpenIndex, numsAndOperators.length);
-        
         const nextClose = restOf.indexOf(")") + lastOpenIndex;
-        console.log(nextClose);
         const solutionIn = solve(numsAndOperators.slice(lastOpenIndex + 1, nextClose))
-        console.log(solutionIn);
+        if (solutionIn === "error") {
+            return "error";
+        }
         numsAndOperators = numsAndOperators.slice(0, lastOpenIndex).concat(solutionIn,numsAndOperators.slice(nextClose+1,numsAndOperators.length));
     }
     console.log(numsAndOperators.join(" "));
@@ -185,7 +197,6 @@ const solve = (arr) => {
     while (numsAndOperators.includes("x") || numsAndOperators.includes("÷")) {
         
         for (let i = 0; i < numsAndOperators.length; i++) {
-
             let replace = null;
 
             if(numsAndOperators[i] === "x") {
@@ -221,8 +232,8 @@ const solve = (arr) => {
     if (numsAndOperators.length === 1) {
         return numsAndOperators;
     } else {
-        console.log("error" + numsAndOperators);
-        return NaN;
+        console.log("error: " + numsAndOperators);
+        return "error";
     }
     
 }
