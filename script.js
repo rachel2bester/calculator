@@ -4,9 +4,9 @@ const numbers = document.querySelectorAll(".number");
 const operator = document.querySelectorAll(".operator");
 const clear = document.querySelector(".calculator__grid__button--clear");
 const del = document.querySelector(".calculator__grid__button--del");
-const input = document.querySelector(".calculator__input");
+const input = document.querySelector(".calculator__io__input");
 const eq = document.querySelector(".calculator__grid__button--eq");
-const out = document.querySelector(".calculator__output");
+const out = document.querySelector(".calculator__io__output");
 const ans = document.querySelector(".calculator__grid__button--ans");
 
 

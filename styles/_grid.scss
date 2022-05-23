@@ -4,7 +4,8 @@
 .calculator__grid {
     display: grid;
     width: 95%;
-    height: 100%;
+    height: 60%;
+    margin-top: 10%;
 
     grid-template-areas: 
         "square power root yroot"

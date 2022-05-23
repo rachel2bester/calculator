@@ -2,8 +2,9 @@
 @use "./mixins" as *;
 
 .calculator__grid__button {
-    border: 1px solid black;
-    box-shadow: 1px 1px black;
+    border: 0.25vw solid black;
+    padding: 0.5vw;
+    box-shadow: 0.25vw 0.25vw black;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -11,19 +12,18 @@
     background-color: $operator-button-color;
     color: $button-font-color;
 
-    height: 90%;
+    height: 75%;
     width: 90%;
     font-size: x-large;
     
 
     &:hover {
-        opacity: 100%;
-        border: 2px solid black;
-        padding: 1px;
+        border: 0.5vw solid black;
+        padding: 0.25vw;
     }
 
     &--eq {
-        height: 95%;
+        height: 90%;
     }
 
 

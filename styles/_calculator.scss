@@ -3,25 +3,33 @@
 
 .calculator {
     width: 90%;
-    height: 90%;
+    height: 85%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 30px;
 
 
     &__io{
         background-color: $io-background;
-        height: 40vh;
+        height: 40%;
         width: 92%;
         border-radius: 5px;
         
-        margin-bottom: 2vh;
+        
+        margin-bottom: 1%;
+        font-size: 3vh;
 
 
         &__output {
             text-align: right;
+            
+        }
+
+        &__output, &__input {
+            padding: 5%;
+            height: 40%;
         }
     }
 
