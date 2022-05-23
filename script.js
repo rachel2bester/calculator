@@ -7,6 +7,8 @@ const del = document.querySelector(".calculator__grid__button--del");
 const input = document.querySelector(".calculator__input");
 const eq = document.querySelector(".calculator__grid__button--eq");
 const out = document.querySelector(".calculator__output");
+const ans = document.querySelector(".calculator__grid__button--ans");
+
 
 
 let arr = [];
@@ -50,9 +52,17 @@ const onPressOperator = (event) => {
     updateInput();
 }
 
+const onAns = (event) => {
+    console.log(out.innerText);
+    if (typeof(out.innerText) != undefined) {
+        arr.push("Ans");
+        updateInput();
+    }
+}
+
 const onDelete = (event) => {
     console.log("delete button pressed")
-    if(!isNaN(arr[arr.length - 1])) { // && arr[arr.length - 1].length > 1 if last element is a number and length is longer than 1
+    if(!isNaN(arr[arr.length - 1])) { //if last element is a number and length is longer than 1
         arr[arr.length - 1] = arr[arr.length - 1].substring(0,(arr[arr.length - 1].length - 1))
     } else {
         arr.pop()
@@ -62,26 +72,9 @@ const onDelete = (event) => {
 
 
 
-const onEquals = (event) => {
-    arr.forEach((str) => {
-        if (!isNaN(str)) {
-            str = Number(str);
-            console.log(typeof(str) + "   " + str);
-        }
-    }) 
-    outputArr = solve(arr)
-    let string = "";
-    outputArr.forEach((item) => {
-        string = string +  " " + item;
-    });
-    out.innerText = string;
-}
 
-const onClear = (event) => {
-    console.log("clear");
-    arr = [];
-    updateInput();
-}
+
+
 
 const updateInput = () => {
     let string = "";
@@ -112,7 +105,29 @@ const updateInput = () => {
     input.innerHTML = `<p>${string}</p>`;
 }
 
+const onEquals = (event) => {
+    console.log(arr);
+    for (let i = 0; i < arr.length; i++) {
+        if (!isNaN(arr[i])) {
+            arr[i] = Number(arr[i]);
+            console.log(typeof(arr[i]) + "   " + arr[i]);
+        }
+    }
 
+    console.log(arr);
+    outputArr = solve(arr)
+    let string = "";
+    outputArr.forEach((item) => {
+        string = string +  " " + item;
+    });
+    out.innerText = string;
+}
+
+const onClear = (event) => {
+    console.log("clear");
+    arr = [];
+    updateInput();
+}
 
 
 numbers.forEach((number) => number.addEventListener("click", onPressNum));
@@ -120,6 +135,7 @@ operator.forEach((number) => number.addEventListener("click", onPressOperator));
 clear.addEventListener("click", onClear);
 del.addEventListener("click", onDelete);
 eq.addEventListener("click", onEquals);
+ans.addEventListener("click", onAns);
 
 
 
@@ -128,7 +144,14 @@ eq.addEventListener("click", onEquals);
 const solve = (arr) => {
     let numsAndOperators = [...arr];
 
-    
+    for (let i = 0; i < numsAndOperators.length; i++) {
+        if (numsAndOperators[i] === "Ans") {
+            numsAndOperators[i] = out.innerText;
+        }
+    }
+    console.log(numsAndOperators);
+
+
 
     while (numsAndOperators.includes("(")) {
         const lastOpenIndex = numsAndOperators.lastIndexOf("(");
