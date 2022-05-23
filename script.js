@@ -62,18 +62,13 @@ const onAns = (event) => {
 
 const onDelete = (event) => {
     console.log("delete button pressed")
-    if(!isNaN(arr[arr.length - 1])) { //if last element is a number and length is longer than 1
+    if(!isNaN(arr[arr.length - 1]) && (arr[arr.length - 1].length > 1)) { //if last element is a number and length is longer than 1
         arr[arr.length - 1] = arr[arr.length - 1].substring(0,(arr[arr.length - 1].length - 1))
     } else {
         arr.pop()
     }
     updateInput();
 }
-
-
-
-
-
 
 
 const updateInput = () => {
@@ -107,14 +102,7 @@ const updateInput = () => {
 
 const onEquals = (event) => {
     console.log(arr);
-    for (let i = 0; i < arr.length; i++) {
-        if (!isNaN(arr[i])) {
-            arr[i] = Number(arr[i]);
-            console.log(typeof(arr[i]) + "   " + arr[i]);
-        }
-    }
 
-    console.log(arr);
     outputArr = solve(arr)
     let string = "";
     outputArr.forEach((item) => {
@@ -149,6 +137,7 @@ const solve = (arr) => {
             numsAndOperators[i] = out.innerText;
         }
     }
+
     console.log(numsAndOperators);
 
 
