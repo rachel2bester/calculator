@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: darkslategrey;
-    color: white;
+    background-color: $operator-button-color;
+    color: $button-font-color;
 
     height: 90%;
     width: 90%;
@@ -23,18 +23,18 @@
     }
 
     &--eq {
-        height: 90%;
+        height: 95%;
     }
 
 
 
     &--del, &--eq, &--clear{
-        background-color: orange;
+        background-color: $action-button-color;
     }
 
     &--1, &--2, &--3, &--4, &--5, &--6, &--7, 
     &--8, &--9, &--0, &--dec, &--ans {
-        background-color: rgb(83, 83, 83);
+        background-color: $num-button-color;
     } 
 
 }

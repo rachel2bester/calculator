@@ -2,28 +2,27 @@
 @use "./mixins" as *;
 
 .calculator {
-    border: 1px solid black;
-    margin: 30px;
     width: 90%;
     height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding-bottom: 30px;
 
 
-    &__input, &__output {
-        height: 50px;
-        width: 80%;
-        margin: 15px;
+    &__io{
+        background-color: $io-background;
+        height: 40vh;
+        width: 92%;
         border-radius: 5px;
         
-        border: 1px solid black;
-    }
+        margin-bottom: 2vh;
 
-    &__output {
-        text-align: right;
+
+        &__output {
+            text-align: right;
+        }
     }
 
 }

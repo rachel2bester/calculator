@@ -10,10 +10,14 @@
 
 h1 {
     text-align: center;
+    color: $primary-color;
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: 4vh;
 }
 
 body {
-    background-color: aquamarine;
+    background-color: $background-color;
     display: flex;
     justify-content: center;
     align-items: center;
