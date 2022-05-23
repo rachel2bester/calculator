@@ -5,3 +5,18 @@
     vertical-align: super;
     font-size: 50%;
 }
+
+
+
+h1 {
+    text-align: center;
+}
+
+body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:100vh;
+}

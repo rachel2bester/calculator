@@ -3,17 +3,25 @@
 
 .calculator__grid {
     display: grid;
-    width: 400px;
+    width: 95%;
+    height: 100%;
 
     grid-template-areas: 
-        "square power open close root"
-        "seven eight nine del clear"
-        "four five six x div"
-        "one two three plus sub"
-        "zero dec ans eq eq";
+        "square power root yroot"
+        "plus sub x div"
+        "open close neg fact"
+        "seven eight nine clear"
+        "four five six del"
+        "one two three eq"
+        "zero dec ans eq";
+
+    grid-auto-columns: 1fr;
 
     align-items: center;
+
     &__button {
+
+        
         &--square{
             grid-area: square;
         }
@@ -85,6 +93,15 @@
         }
         &--eq {
             grid-area: eq;
+        }
+        &--yroot {
+            grid-area: yroot;
+        }
+        &--neg {
+            grid-area: neg;
+        }
+        &--fact {
+            grid-area: fact;
         }
         
         

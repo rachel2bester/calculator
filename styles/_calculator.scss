@@ -3,7 +3,9 @@
 
 .calculator {
     border: 1px solid black;
-    width: 500px;
+    margin: 30px;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -13,7 +15,7 @@
 
     &__input, &__output {
         height: 50px;
-        width: 300px;
+        width: 80%;
         margin: 15px;
         border-radius: 5px;
         

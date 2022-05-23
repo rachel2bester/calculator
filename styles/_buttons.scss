@@ -10,14 +10,20 @@
     align-items: center;
     background-color: darkslategrey;
     color: white;
-    padding: 2px;
-    margin: 1px;
 
+    height: 90%;
+    width: 90%;
+    font-size: x-large;
+    
 
     &:hover {
         opacity: 100%;
         border: 2px solid black;
         padding: 1px;
+    }
+
+    &--eq {
+        height: 90%;
     }
 
 

@@ -3,10 +3,25 @@
   font-size: 50%;
 }
 
+h1 {
+  text-align: center;
+}
+
+body {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .calculator__grid {
   display: grid;
-  width: 400px;
-  grid-template-areas: "square power open close root" "seven eight nine del clear" "four five six x div" "one two three plus sub" "zero dec ans eq eq";
+  width: 95%;
+  height: 100%;
+  grid-template-areas: "square power root yroot" "plus sub x div" "open close neg fact" "seven eight nine clear" "four five six del" "one two three eq" "zero dec ans eq";
+  grid-auto-columns: 1fr;
   align-items: center;
 }
 .calculator__grid__button--square {
@@ -81,6 +96,15 @@
 .calculator__grid__button--eq {
   grid-area: eq;
 }
+.calculator__grid__button--yroot {
+  grid-area: yroot;
+}
+.calculator__grid__button--neg {
+  grid-area: neg;
+}
+.calculator__grid__button--fact {
+  grid-area: fact;
+}
 
 .calculator__grid__button {
   border: 1px solid black;
@@ -91,13 +115,17 @@
   align-items: center;
   background-color: darkslategrey;
   color: white;
-  padding: 2px;
-  margin: 1px;
+  height: 90%;
+  width: 90%;
+  font-size: x-large;
 }
 .calculator__grid__button:hover {
   opacity: 100%;
   border: 2px solid black;
   padding: 1px;
+}
+.calculator__grid__button--eq {
+  height: 90%;
 }
 .calculator__grid__button--del, .calculator__grid__button--eq, .calculator__grid__button--clear {
   background-color: orange;
@@ -108,7 +136,9 @@
 
 .calculator {
   border: 1px solid black;
-  width: 500px;
+  margin: 30px;
+  width: 90%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -117,7 +147,7 @@
 }
 .calculator__input, .calculator__output {
   height: 50px;
-  width: 300px;
+  width: 80%;
   margin: 15px;
   border-radius: 5px;
   border: 1px solid black;
