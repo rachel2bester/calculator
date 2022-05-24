@@ -105,7 +105,7 @@ const onEquals = (event) => {
 
     outputArr = solve(arr);
     let string = "";
-    if (outputArr != "error") {
+    if (outputArr != "error" || !isNaN(outputArr[0])) {
         
         outputArr.forEach((item) => {
             string = string +  " " + item;
@@ -118,7 +118,13 @@ const onEquals = (event) => {
 
 const onClear = (event) => {
     console.log("clear");
-    arr = [];
+    console.log(arr);
+    if (arr.length === 0) {
+        out.innerText = "";
+    } else {
+        arr = [];
+    }
+    
     updateInput();
 }
 
@@ -142,6 +148,7 @@ const solve = (arr) => {
     numsAndOperators[0] === "x" ||
     numsAndOperators[0] === "÷" ||
     numsAndOperators[0] === "+" ||
+    numsAndOperators[0] === "%" ||
     numsAndOperators[0] === "+-") {
         return "error";
     }
@@ -154,6 +161,7 @@ const solve = (arr) => {
     }
 
     console.log(numsAndOperators);
+
 
     while (numsAndOperators.includes("(")) {
         const lastOpenIndex = numsAndOperators.lastIndexOf("(");
@@ -182,11 +190,19 @@ const solve = (arr) => {
         }
     }
 
+    
+    while (numsAndOperators.includes("%")){
+        for (let i = 0; i < numsAndOperators.length; i++) {
+            if (numsAndOperators[i] === "%") {
+                const replace = numsAndOperators[i - 1]/100 * numsAndOperators[i + 1];
+                numsAndOperators = numsAndOperators.slice(0, i - 1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+            }
+        } 
+    }
+
 
     // for each multiplication and division, left to right
-
     for (let i = 0; i < numsAndOperators.length; i++) {
-            
         //if two numbers next to eachother
         if (!isNaN(numsAndOperators[i]) && !isNaN(numsAndOperators[i + 1])) {
             numsAndOperators[i] = numsAndOperators[i] * numsAndOperators[i + 1];

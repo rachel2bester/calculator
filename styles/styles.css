@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 .indice {
   vertical-align: super;
   font-size: 50%;
@@ -6,7 +7,6 @@
 h1 {
   text-align: center;
   color: orange;
-  font-family: Arial;
   font-weight: bold;
   font-size: xx-large;
 }
@@ -20,12 +20,15 @@ body {
   height: 95vh;
 }
 
+* {
+  font-family: "Lora", Arial;
+}
+
 .calculator__grid {
   display: grid;
   width: 95%;
   height: 55%;
   margin-top: 10%;
-  grid-template-areas: "square power root yroot" "plus sub x div" "open close neg fact" "seven eight nine clear" "four five six del" "one two three eq" "zero dec ans eq";
   grid-auto-columns: 1fr;
 }
 .calculator__grid__button {
@@ -109,22 +112,33 @@ body {
 .calculator__grid__button--neg {
   grid-area: neg;
 }
-.calculator__grid__button--fact {
-  grid-area: fact;
+.calculator__grid__button--per {
+  grid-area: per;
 }
 
+@media only screen and (max-width: 767px) {
+  .calculator__grid {
+    grid-template-areas: "square power root yroot" "plus sub x div" "open close neg per" "seven eight nine clear" "four five six del" "one two three eq" "zero dec ans eq";
+  }
+}
+@media only screen and (min-width: 768px) {
+  .calculator__grid {
+    grid-template-areas: "seven eight nine square power per clear" "four five six root yroot neg del" "one two three open close plus eq" "zero dec ans x div sub eq";
+    height: 70%;
+  }
+}
 .calculator__grid__button {
   border: 0.25vw solid black;
   padding: 0.5vw;
   box-shadow: 0.25vw 0.25vw black;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: darkslategrey;
   color: white;
   height: 75%;
-  width: 90%;
+  width: 80%;
   font-size: x-large;
 }
 .calculator__grid__button:hover {

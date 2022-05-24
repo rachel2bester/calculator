@@ -7,14 +7,7 @@
     height: 55%;
     margin-top: 10%;
 
-    grid-template-areas: 
-        "square power root yroot"
-        "plus sub x div"
-        "open close neg fact"
-        "seven eight nine clear"
-        "four five six del"
-        "one two three eq"
-        "zero dec ans eq";
+    
 
     grid-auto-columns: 1fr;
 
@@ -101,15 +94,36 @@
         &--neg {
             grid-area: neg;
         }
-        &--fact {
-            grid-area: fact;
+        &--per {
+            grid-area: per;
         }
-        
-        
-
-
-
-
     }
+}
+
+@media only screen and (max-width: 767px) {
+    //phone
+    .calculator__grid {
+        grid-template-areas: 
+            "square power root yroot"
+            "plus sub x div"
+            "open close neg per"
+            "seven eight nine clear"
+            "four five six del"
+            "one two three eq"
+            "zero dec ans eq";
+    }  
+}
+
+@media only screen and (min-width: 768px) {
+    //tablet
+    .calculator__grid {
+        grid-template-areas: 
+            "seven eight nine square power per clear"
+            "four five six root yroot neg del"
+            "one two three open close plus eq"
+            "zero dec ans x div sub eq";
+        
+        height: 70%;
     }
+}
     
