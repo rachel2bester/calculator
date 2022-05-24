@@ -75,13 +75,13 @@ const updateInput = () => {
     let string = "";
     console.log(arr)
     for (let i = 0; i < arr.length; i++) {
+
         if (arr[i] === "po") {
             string = string + ` <span class="indice">`;
             
         } else if (arr[i] === ")" && (arr.slice(0,i)[arr.lastIndexOf("(") - 1] === "po")) {
             console.log(") here");
             string = string +  ` ${arr[i]}</span>`;
-        
         
         } else if (arr[i] === "rt") {
             if (arr[i - 1] === 2) {
@@ -97,7 +97,7 @@ const updateInput = () => {
             string = string +  " " + arr[i];
         }
     }
-    input.innerHTML = `<p>${string}</p>`;
+    input.innerHTML = `<div>${string}</div>`;
 }
 
 const onEquals = (event) => {
@@ -113,7 +113,7 @@ const onEquals = (event) => {
     } else {
         string = "invalid input"
     } 
-    out.innerText = string;
+    out.innerHTML = `<p>${string}<\p>`;
 }
 
 const onClear = (event) => {
