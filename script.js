@@ -1,4 +1,4 @@
-//
+
 
 const numbers = document.querySelectorAll(".number");
 const operator = document.querySelectorAll(".operator");
@@ -70,7 +70,6 @@ const onDelete = (event) => {
     updateInput();
 }
 
-
 const updateInput = () => {
     let string = "";
     console.log(arr)
@@ -106,7 +105,6 @@ const onEquals = (event) => {
     outputArr = solve(arr);
     let string = "";
     if (outputArr != "error" || !isNaN(outputArr[0])) {
-        
         outputArr.forEach((item) => {
             string = string +  " " + item;
         });
@@ -118,7 +116,6 @@ const onEquals = (event) => {
 
 const onClear = (event) => {
     console.log("clear");
-    console.log(arr);
     if (arr.length === 0) {
         out.innerText = "";
     } else {
@@ -130,7 +127,7 @@ const onClear = (event) => {
 
 
 numbers.forEach((number) => number.addEventListener("click", onPressNum));
-operator.forEach((number) => number.addEventListener("click", onPressOperator));
+operator.forEach((operator) => operator.addEventListener("click", onPressOperator));
 clear.addEventListener("click", onClear);
 del.addEventListener("click", onDelete);
 eq.addEventListener("click", onEquals);
@@ -172,6 +169,7 @@ const solve = (arr) => {
             return "error";
         }
         numsAndOperators = numsAndOperators.slice(0, lastOpenIndex).concat(solutionIn,numsAndOperators.slice(nextClose+1,numsAndOperators.length));
+        console.log(numsAndOperators);
     }
     console.log(numsAndOperators.join(" "));
 
@@ -183,10 +181,12 @@ const solve = (arr) => {
         if(numsAndOperators[i] === "po") {
             replace = Math.pow(numsAndOperators[i - 1], numsAndOperators[i + 1]);
             numsAndOperators = numsAndOperators.slice(0, i-1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+            console.log(numsAndOperators);
         }
         if(numsAndOperators[i] === "rt") {
             replace = Math.pow(numsAndOperators[i + 1], 1/numsAndOperators[i - 1]);
             numsAndOperators = numsAndOperators.slice(0, i-1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+            console.log(numsAndOperators);
         }
     }
 
@@ -196,6 +196,7 @@ const solve = (arr) => {
             if (numsAndOperators[i] === "%") {
                 const replace = numsAndOperators[i - 1]/100 * numsAndOperators[i + 1];
                 numsAndOperators = numsAndOperators.slice(0, i - 1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+                console.log(numsAndOperators);
             }
         } 
     }
@@ -207,6 +208,7 @@ const solve = (arr) => {
         if (!isNaN(numsAndOperators[i]) && !isNaN(numsAndOperators[i + 1])) {
             numsAndOperators[i] = numsAndOperators[i] * numsAndOperators[i + 1];
             numsAndOperators.splice(i + 1, 1);
+            console.log(numsAndOperators);
         }
     }
 
@@ -223,6 +225,7 @@ const solve = (arr) => {
     
             if (replace != null) {
                 numsAndOperators = numsAndOperators.slice(0, i - 1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+                console.log(numsAndOperators);
             }
             
         }  
@@ -241,6 +244,7 @@ const solve = (arr) => {
 
             if (replace != null) {
                 numsAndOperators = numsAndOperators.slice(0, i-1).concat([replace],numsAndOperators.slice(i+2,numsAndOperators.length))
+                console.log(numsAndOperators);
             }
         }
     }
